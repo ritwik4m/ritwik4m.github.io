@@ -1,219 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ritwik Mishra | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #2563eb;
-      --bg-light: #f9fafb;
-      --text-dark: #1f2937;
-      --text-light: #6b7280;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
-      line-height: 1.6;
-      padding-bottom: 80px;
-    }
-
-    header.hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .hero-left {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .hero-left h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .hero-left h2 {
-      font-size: 1.1rem;
-      color: var(--text-light);
-      margin-bottom: 15px;
-    }
-
-    .hero-left p {
-      margin-bottom: 20px;
-      color: var(--text-dark);
-    }
-
-    .hero-right img {
-      width: 160px;
-      height: 160px;
-      border-radius: 12px;
-      object-fit: cover;
-      border: 4px solid var(--primary);
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: 10px 18px;
-      border-radius: 30px;
-      text-decoration: none;
-      margin: 5px 8px 5px 0;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background: #1e40af;
-    }
-
-    .section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-
-    .section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-    }
-
-    .tags {
-      margin-bottom: 20px;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #e5e7eb;
-      color: var(--text-dark);
-      padding: 6px 14px;
-      border-radius: 20px;
-      margin: 5px 8px 5px 0;
-      font-size: 0.9rem;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
-    }
-
-    .card h3 {
-      margin-bottom: 10px;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    footer {
-      text-align: center;
-      color: var(--text-light);
-      padding: 40px 20px 0;
-    }
-
-    a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ritwik Mishra | Data Science Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <header class="hero">
-    <div class="hero-left">
-      <h1>Ritwik Mishra</h1>
-      <h2>MSc Data Science | ML | Cloud & NLP Explorer</h2>
-      <p>I'm a Data Science professional with 5+ years in QA and a passion for creating scalable, intelligent systems using ML, NLP, and cloud tools.</p>
-      <a href="mailto:ritwik4m@gmail.com" class="btn">📧 Email</a>
-      <a href="https://github.com/ritwik4m" class="btn">GitHub</a>
-      <a href="https://linkedin.com/in/ritwik4m" class="btn">LinkedIn</a>
-      <a href="Ritwik_CV.pdf" class="btn" download>📄 Download CV</a>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Ritwik</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
     </div>
-    <div class="hero-right">
-      <img src="profile.jpeg" alt="Ritwik Mishra">
-    </div>
-  </header>
+  </nav>
 
-  <section class="section">
-    <h2>Tech Stack</h2>
-    <div class="tags">
-      <span class="tag">Python</span>
-      <span class="tag">Machine Learning</span>
-      <span class="tag">NLP</span>
-      <span class="tag">AWS</span>
-      <span class="tag">TensorFlow</span>
-      <span class="tag">PyTorch</span>
-      <span class="tag">SQL</span>
-      <span class="tag">Git</span>
-      <span class="tag">Docker</span>
+  <!-- Hero -->
+  <section class="hero">
+    <img src="profile.jpeg" alt="Profile Picture" class="profile-pic">
+    <h1>Hey, I'm Ritwik! 👋</h1>
+    <p>MSc Data Science | Machine Learning | Cloud & NLP Explorer</p>
+    <a href="Ritwik_CV.pdf" class="btn" download="Ritwik_Mishra_CV.pdf">Download CV</a>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a Data Science professional currently pursuing my MSc in Data Science at the University of Surrey. I have over 5 years of QA Engineering experience and I specialize in building reliable, data-driven solutions using Machine Learning, NLP, and Cloud technologies.</p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">Machine Learning</span>
+      <span class="skill-tag">SQL/NoSQL</span>
+      <span class="skill-tag">NLP</span>
+      <span class="skill-tag">Data Visualization</span>
+      <span class="skill-tag">AWS</span>
+      <span class="skill-tag">Cloud Computing</span>
     </div>
   </section>
 
-  <section class="section">
-    <h2>Why Hire Me</h2>
-    <div class="card">
-      <ul>
-        <li>✅ Hands-on with end-to-end ML workflows: data wrangling to deployment</li>
-        <li>✅ Strong background in QA + ML ensures reliability</li>
-        <li>✅ Comfortable with AWS, GitHub Actions, and scalable architectures</li>
-        <li>✅ Passion for NLP and LLMs</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section">
+  <!-- Projects -->
+  <section id="projects">
     <h2>Projects</h2>
-    <div class="card">
-      <h3>📊 Sentiment Analysis Tool</h3>
-      <p>ML tool to analyze customer review sentiments using NLP techniques and classification models.</p>
-      <a href="https://github.com/ritwik4m/sentiment-analysis" class="btn">View on GitHub</a>
+
+    <div class="project">
+      <h3>Sentiment Analysis Tool</h3>
+      <p>A machine learning-based tool to analyze sentiment in customer reviews using NLP techniques.</p>
+      <a href="#" class="btn">View Project</a>
     </div>
-    <div class="card">
-      <h3>☁️ Cloud Data Pipeline</h3>
-      <p>Built a real-time data pipeline using AWS services to process, store, and analyze streaming data.</p>
-      <a href="https://github.com/ritwik4m/cloud-data-pipeline" class="btn">View on GitHub</a>
+
+    <div class="project">
+      <h3>Cloud Data Pipeline</h3>
+      <p>Implemented a scalable data pipeline on AWS for real-time analytics.</p>
+      <a href="#" class="btn">View Project</a>
     </div>
   </section>
 
-  <section class="section">
-    <h2>Experience</h2>
-    <div class="card">
-      <h3>📍 Data Science Intern – Verbatica Pvt Ltd</h3>
-      <p><em>June 2023 – Dec 2023</em></p>
-      <ul>
-        <li>Worked on NLP-driven models for classification and clustering</li>
-        <li>Collaborated with stakeholders to translate business problems into ML solutions</li>
-        <li>Deployed models on AWS Lambda + API Gateway</li>
-      </ul>
+  <!-- Education -->
+  <section id="education">
+    <h2>Education</h2>
+
+    <div class="education-card">
+      <h3>MSc Data Science (Distinction)</h3>
+      <p>University of Surrey, UK (Sept 2024 – Nov 2025)</p>
+      <p><strong>Modules:</strong> Machine Learning, NLP, Cloud Computing, Data Mining, Business Analytics</p>
+      <p><strong>Dissertation:</strong> BioDynaMo-based pipeline for Neuron Morphology Optimisation</p>
+    </div>
+
+    <div class="education-card">
+      <h3>BEng Electronics & Telecommunication</h3>
+      <p>Bhilai Institute of Technology, India (Aug 2014 – Jun 2018)</p>
+      <p><strong>Capstone:</strong> Designed a wireless IoT network for polyhouse monitoring and control</p>
     </div>
   </section>
 
+  <!-- Contact -->
+  <section id="contact" class="contact-info">
+    <h2>Say Hi!</h2>
+    <p>Email: ritwikdm@gmail.com</p>
+    <p>Connect on <a href="https://www.linkedin.com/in/ritwik4m" target="_blank">LinkedIn</a></p>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2026 Ritwik Mishra · <a href="mailto:ritwik4m@gmail.com">Email</a> · <a href="https://github.com/ritwik4m">GitHub</a></p>
+    <p>&copy; 2026 Ritwik Mishra. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
