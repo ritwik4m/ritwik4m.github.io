@@ -151,6 +151,28 @@ section h2::after {
     margin-bottom: 0.5rem;
 }
 
+.project {
+    background-color: #f9f9f9;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    display: inline-block;
+    background-color: #007acc;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #005e99;
+}
 
 /* Projects */
 .project {
