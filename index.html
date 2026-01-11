@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +14,12 @@
             text-align: center;
             scroll-behavior: smooth;
         }
+
         header {
             padding: 80px 20px;
             animation: fadeIn 1.2s ease-in-out;
         }
+
         .profile-pic {
             width: 150px;
             height: 150px;
@@ -26,18 +29,22 @@
             margin-bottom: 20px;
             transition: transform 0.3s;
         }
+
         .profile-pic:hover {
             transform: scale(1.05);
         }
+
         h1 {
             font-size: 2.5rem;
             margin: 10px 0;
         }
+
         h2 {
             font-weight: normal;
             font-size: 1.2rem;
             margin-bottom: 30px;
         }
+
         nav a {
             margin: 0 15px;
             text-decoration: none;
@@ -46,9 +53,20 @@
             font-size: 1rem;
             transition: color 0.3s;
         }
+
         nav a:hover {
             color: #dbeafe;
         }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            padding: 12px 0;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+        }
+
         section {
             background: #fff;
             color: #000;
@@ -60,10 +78,12 @@
             transform: translateY(30px);
             transition: all 0.8s ease-in-out;
         }
+
         section.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
         .btn {
             display: inline-block;
             background: #2563eb;
@@ -75,24 +95,35 @@
             margin-top: 20px;
             transition: background 0.3s;
         }
+
         .btn:hover {
             background: #1e40af;
         }
+
         .project-card {
             background: #f3f4f6;
             border-radius: 10px;
             padding: 20px;
             margin: 15px 0;
         }
+
         @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(-20px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
+
 <body>
     <header>
-        <img src="your-photo.jpg" alt="Profile Picture" class="profile-pic">
+        <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
         <h1>Hey, I'm Ritwik! 👋</h1>
         <h2>MSc Data Science | Machine Learning | Cloud & NLP Explorer</h2>
         <nav>
@@ -106,7 +137,9 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <p>I am a Data Science professional currently pursuing my MSc in Data Science at the University of Surrey. I have over 5 years of QA Engineering experience and I specialize in building reliable, data-driven solutions using Machine Learning, NLP, and Cloud technologies.</p>
+        <p>I am a Data Science professional currently pursuing my MSc in Data Science at the University of Surrey. I
+            have over 5 years of QA Engineering experience and I specialize in building reliable, data-driven solutions
+            using Machine Learning, NLP, and Cloud technologies.</p>
     </section>
 
     <section id="skills">
@@ -147,4 +180,5 @@
         });
     </script>
 </body>
+
 </html>
