@@ -5,7 +5,391 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ritwik Mishra | Data Science Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bg: #150c0e;
+            --bg-alt: #1e1315;
+            --accent: #a3222f;
+            --accent-light: #e0546a;
+            --text: #f3eeee;
+            --text-muted: #b8a9aa;
+            --card-bg: #24171a;
+            --card-border: #3a2226;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(21, 12, 14, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--accent-light);
+        }
+
+        section {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 0.75rem 0 0;
+        }
+
+        section > p.section-sub {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        /* Hero */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1100px;
+            margin: auto;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .hero-text .eyebrow {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            max-width: 480px;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #fff;
+            padding: 0.6rem 1.3rem;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-right: 0.75rem;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-light);
+        }
+
+        .btn.btn-outline {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--text);
+        }
+
+        .btn.btn-outline:hover {
+            background: var(--accent);
+        }
+
+        .profile-pic {
+            width: 260px;
+            height: 260px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid var(--card-border);
+        }
+
+        /* At a Glance - vertical stat stack */
+        .stat-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            max-width: 500px;
+        }
+
+        .stat-row {
+            display: flex;
+            align-items: baseline;
+            gap: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent-light);
+            min-width: 90px;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+        }
+
+        .stat-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Achievement cards */
+        .achievement-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .achievement-card {
+            background: var(--card-bg);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+        }
+
+        .achievement-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .achievement-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Skills */
+        .skills-category {
+            margin-bottom: 1.75rem;
+        }
+
+        .skills-category h3 {
+            font-size: 1.05rem;
+            color: var(--accent-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-category p {
+            color: var(--text-muted);
+        }
+
+        /* Timeline (Experience) */
+        .timeline {
+            max-width: 700px;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 24px;
+            top: 4px;
+            bottom: 4px;
+            width: 2px;
+            background: var(--accent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem 1.5rem 1.5rem 90px;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: var(--accent);
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .timeline-item h3 {
+            margin-bottom: 6px;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .timeline-date {
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+        }
+
+        .timeline-body {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .highlight {
+            color: var(--accent-light);
+            font-weight: bold;
+        }
+
+        /* Education - vertical stack */
+        .edu-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .edu-year {
+            font-weight: bold;
+            color: var(--accent-light);
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        .edu-item h3 {
+            margin-bottom: 6px;
+            font-size: 1.1rem;
+        }
+
+        .edu-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Projects */
+        .project {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .project h3 {
+            margin-bottom: 0.4rem;
+        }
+
+        .project p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cert-card {
+            background: var(--card-bg);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .cert-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-card .cert-sub {
+            color: var(--accent-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .cert-card .cert-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Contact + Footer */
+        .contact-info a {
+            color: var(--accent-light);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--card-border);
+        }
+    </style>
 </head>
 
 <body>
@@ -14,6 +398,7 @@
         <div class="logo">Ritwik</div>
         <div class="nav-links">
             <a href="#about">About</a>
+            <a href="#glance">At a Glance</a>
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
@@ -25,167 +410,197 @@
 
     <!-- Hero -->
     <section class="hero">
+        <div class="hero-text">
+            <p class="eyebrow">Ritwik Mishra</p>
+            <h1>Data Analyst &amp; Analytics Engineer</h1>
+            <p>MSc Data Science (Distinction) &middot; 5+ years building reliable, data-driven systems across BFSI, telecom, and eCommerce &middot; SQL, Python, Power BI, dbt, Azure, BigQuery</p>
+            <a href="Ritwik_CV.pdf" class="btn" download="Ritwik_Mishra_CV.pdf">Download CV</a>
+            <a href="https://www.linkedin.com/in/ritwik4m" target="_blank" class="btn btn-outline">LinkedIn</a>
+            <a href="https://github.com/ritwik4m" target="_blank" class="btn btn-outline">GitHub</a>
+        </div>
         <img src="profile.jpeg" alt="Profile Picture" class="profile-pic">
-        <h1>Ritwik Mishra</h1>
-        <p>Data Analyst & Analytics Engineer | SQL, Power BI, dbt, Cloud</p>
-        <a href="Ritwik_CV.pdf" class="btn" download="Ritwik_Mishra_CV.pdf">Download CV</a>
     </section>
 
     <!-- About -->
     <section id="about">
         <h2>About Me</h2>
-        <p>I'm a data professional with an MSc in Data Science (Distinction, University of Surrey) and over 5 years of experience building reliable, data-driven systems across BFSI, telecom, and eCommerce. My work has driven measurable outcomes, including a 40% improvement in defect detection and a 60% reduction in regression effort through data-led process redesign. I combine strong SQL and Python fundamentals with hands-on experience in Power BI, dbt, and cloud data platforms (Azure, BigQuery) to turn raw data into decisions. Currently deepening my analytics engineering skills through the PL-300 certification.</p>
+        <p style="color: var(--text-muted); max-width: 700px;">I'm a data professional with an MSc in Data Science (Distinction, University of Surrey) and over 5 years of experience building reliable, data-driven systems across BFSI, telecom, and eCommerce. My work has driven measurable outcomes, including a 40% improvement in defect detection and a 60% reduction in regression effort through data-led process redesign. I combine strong SQL and Python fundamentals with hands-on experience in Power BI, dbt, and cloud data platforms (Azure, BigQuery) to turn raw data into decisions. Currently deepening my analytics engineering skills through the PL-300 certification.</p>
+    </section>
+
+    <!-- At a Glance -->
+    <section id="glance">
+        <h2>At a Glance</h2>
+        <p class="section-sub">A data professional combining rigorous academic training with enterprise-grade delivery experience across regulated industries.</p>
+
+        <div class="stat-stack">
+            <div class="stat-row">
+                <div class="stat-number">5+</div>
+                <div>
+                    <div class="stat-label">Years of experience</div>
+                    <div class="stat-desc">Across BFSI, telecom, and eCommerce sectors</div>
+                </div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-number">25+</div>
+                <div>
+                    <div class="stat-label">Enterprise releases</div>
+                    <div class="stat-desc">Supported across enterprise clients</div>
+                </div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-number">250+</div>
+                <div>
+                    <div class="stat-label">Defects tracked</div>
+                    <div class="stat-desc">Logged and managed at Paxcom India</div>
+                </div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-number">40%</div>
+                <div>
+                    <div class="stat-label">Defect detection gain</div>
+                    <div class="stat-desc">Through data-led process redesign</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Achievements -->
+    <section id="achievements">
+        <h2>Key Achievements</h2>
+
+        <div class="achievement-grid">
+            <div class="achievement-card">
+                <h3>40% improvement in defect detection</h3>
+                <p>Redesigned testing processes using data-led analysis, significantly improving defect identification rates across enterprise delivery pipelines.</p>
+            </div>
+            <div class="achievement-card">
+                <h3>60% reduction in regression effort</h3>
+                <p>Streamlined regression workflows through targeted automation and smarter test coverage strategies, cutting manual effort substantially.</p>
+            </div>
+            <div class="achievement-card">
+                <h3>Apex Award Q1 2019, Accenture</h3>
+                <p>Recognised for outstanding performance and delivery excellence at Accenture Solutions, a global professional services leader.</p>
+            </div>
+            <div class="achievement-card">
+                <h3>250+ defects logged and tracked</h3>
+                <p>End-to-end defect lifecycle management at Paxcom India, ensuring quality gates were met across all client releases.</p>
+            </div>
+        </div>
     </section>
 
     <!-- Experience -->
     <section id="experience">
-        <h2>Experience</h2>
+        <h2>Professional Experience</h2>
 
-        <div style="max-width: 650px; margin: 30px auto 0; background: #1a1a1a; border-radius: 8px; padding: 10px 0;">
-
-            <!-- Paxcom -->
-            <div style="display: flex; gap: 16px; padding: 20px 24px; border-bottom: 1px solid #333;">
-                <div style="min-width: 56px; height: 56px; background: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; color: #2c7be5;">P</div>
-                <div>
-                    <h3 style="margin: 0 0 4px; color: #fff; font-size: 16px;">Senior QA Engineer</h3>
-                    <p style="margin: 0 0 4px; color: #ccc; font-size: 14px;">Paxcom India &middot; Full-time</p>
-                    <p style="margin: 0 0 4px; color: #999; font-size: 13px;">May 2022 – Aug 2024 &middot; 2 yrs 4 mos</p>
-                    <p style="margin: 0; color: #999; font-size: 13px;">India</p>
-                </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker">1</div>
+                <h3>Senior QA Engineer &ndash; Paxcom India</h3>
+                <p class="timeline-date">May 2022 &ndash; Aug 2024</p>
+                <p class="timeline-body">Led quality assurance for enterprise eCommerce clients. Managed defect lifecycles, improved test coverage, and drove a <span class="highlight">40% improvement in defect detection</span> through process redesign. Supported 25+ releases and tracked 250+ defects end-to-end.</p>
             </div>
 
-            <!-- Accenture -->
-            <div style="display: flex; gap: 16px; padding: 20px 24px;">
-                <div style="min-width: 56px; height: 56px; background: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px; color: #a100ff;">A</div>
-                <div>
-                    <h3 style="margin: 0 0 4px; color: #fff; font-size: 16px;">Test Engineering Senior Analyst</h3>
-                    <p style="margin: 0 0 4px; color: #ccc; font-size: 14px;">Accenture Solutions &middot; Full-time</p>
-                    <p style="margin: 0 0 4px; color: #999; font-size: 13px;">Nov 2018 – Apr 2022 &middot; 3 yrs 6 mos</p>
-                    <p style="margin: 0; color: #999; font-size: 13px;">Pune District, Maharashtra, India</p>
-                </div>
+            <div class="timeline-item">
+                <div class="timeline-marker">2</div>
+                <h3>Test Engineering Senior Analyst &ndash; Accenture Solutions</h3>
+                <p class="timeline-date">Nov 2018 &ndash; Apr 2022</p>
+                <p class="timeline-body">Delivered test engineering services across BFSI and telecom clients. Recognised with the <span class="highlight">Apex Award Q1 2019</span> for outstanding performance. Achieved a <span class="highlight">60% reduction in regression effort</span> through automation and smarter test planning across 150+ logged defects.</p>
             </div>
-
         </div>
     </section>
 
     <!-- Skills -->
     <section id="skills">
-        <h2>Skills</h2>
+        <h2>Technical Skills</h2>
 
-        <div class="skills-category">
-            <h3>Programming Languages</h3>
-            <p>Python, SQL, Java</p>
-        </div>
-
-        <div class="skills-category">
-            <h3>Data Science & Analytics</h3>
-            <p>Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Power BI, Tableau, NLP (preprocessing, sentiment
-                analysis, topic modeling), Statistics, Data Mining</p>
-        </div>
-
-        <div class="skills-category">
-            <h3>Machine Learning & Deep Learning</h3>
-            <p>Supervised & Unsupervised Learning, Feature Engineering, Model Evaluation, Transformers (BERT, Hugging
-                Face), PyTorch, TensorFlow, Data Preprocessing</p>
-        </div>
-
-        <div class="skills-category">
-            <h3>Data Engineering</h3>
-            <p>dbt, Airflow, PySpark, BigQuery, Databricks, ETL validation, pipeline automation, data quality checks, CI/CD integration</p>
-        </div>
-
-        <div class="skills-category">
-            <h3>Cloud Platforms</h3>
-            <p>Azure (Data Factory, Databricks, Synapse), Azure AI Certified, AWS</p>
-        </div>
-
-        <div class="skills-category">
-            <h3>QA & Automation</h3>
-            <p>Test Planning, API Testing, Selenium, Playwright, Cucumber BDD, Jira, HP ALM</p>
-        </div>
-
-        <div class="skills-category">
-            <h3>Soft Skills</h3>
-            <p>Analytical Thinking, Stakeholder Communication, Collaboration, Attention to Detail</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
+            <div>
+                <div class="skills-category">
+                    <h3>Data Science & Analytics</h3>
+                    <p>Python, SQL, Pandas, NumPy, Power BI, dbt, Statistics & Statistical Modeling</p>
+                </div>
+                <div class="skills-category">
+                    <h3>Machine Learning & Deep Learning</h3>
+                    <p>Supervised & Unsupervised Learning, Feature Engineering, Model Evaluation, Transformers (BERT, Hugging Face), PyTorch, TensorFlow</p>
+                </div>
+                <div class="skills-category">
+                    <h3>Data Engineering</h3>
+                    <p>BigQuery, Apache Airflow, PySpark, Azure Data Factory, Databricks, ETL validation, pipeline automation</p>
+                </div>
+            </div>
+            <div>
+                <div class="skills-category">
+                    <h3>Cloud Platforms</h3>
+                    <p>Microsoft Azure, AWS, Azure Synapse Analytics, Databricks (Lakehouse)</p>
+                </div>
+                <div class="skills-category">
+                    <h3>Dev & Delivery Tools</h3>
+                    <p>JIRA, Confluence, Git, Azure DevOps, CI/CD integration</p>
+                </div>
+                <div class="skills-category">
+                    <h3>QA & Automation</h3>
+                    <p>Test Planning, API Testing, Selenium, Playwright, Cucumber BDD, HP ALM</p>
+                </div>
+            </div>
         </div>
     </section>
-
 
     <!-- Projects -->
     <section id="projects">
-      <h2>Projects</h2>
+        <h2>Projects</h2>
 
-      <div class="project">
-        <h3>NER Token Classification</h3>
-        <p>Built and fine-tuned transformer models for Named Entity Recognition (NER) on domain-specific text using Hugging Face.</p>
-        <p><strong>Tech:</strong> Python, Transformers, Hugging Face, NLP</p>
-        <a href="https://github.com/ritwik4m/NER-token-classification" target="_blank" class="btn">View on GitHub</a>
-      </div>
+        <div class="project">
+            <h3>NER Token Classification</h3>
+            <p>Built and fine-tuned transformer models for Named Entity Recognition (NER) on domain-specific text using Hugging Face.</p>
+            <p><strong>Tech:</strong> Python, Transformers, Hugging Face, NLP</p>
+            <a href="https://github.com/ritwik4m/NER-token-classification" target="_blank" class="btn">View on GitHub</a>
+        </div>
 
-      <div class="project">
-        <h3>Neuron Morphology Optimisation (Dissertation)</h3>
-        <p>Developed a BioDynaMo-based simulation workflow to model and optimise neuron structures at scale as part of MSc dissertation.</p>
-        <p><strong>Tech:</strong> Python, BioDynaMo, Simulation, Research</p>
-        <a href="https://github.com/ritwik4m/bdm-neuron-optimizer" target="_blank" class="btn">View on GitHub</a>
-      </div>
+        <div class="project">
+            <h3>Neuron Morphology Optimisation (Dissertation)</h3>
+            <p>Developed a BioDynaMo-based simulation workflow to model and optimise neuron structures at scale as part of MSc dissertation.</p>
+            <p><strong>Tech:</strong> Python, BioDynaMo, Simulation, Research</p>
+            <a href="https://github.com/ritwik4m/bdm-neuron-optimizer" target="_blank" class="btn">View on GitHub</a>
+        </div>
 
-      <div class="project">
-        <h3>House Price Prediction</h3>
-        <p>Built regression models to predict house prices using feature engineering, model comparison, and interpretability tools.</p>
-        <p><strong>Tech:</strong> Python, Pandas, Scikit-learn, Matplotlib</p>
-        <a href="https://github.com/ritwik4m/house-price-prediction" target="_blank" class="btn">View on GitHub</a>
-      </div>
+        <div class="project">
+            <h3>House Price Prediction</h3>
+            <p>Built regression models to predict house prices using feature engineering, model comparison, and interpretability tools.</p>
+            <p><strong>Tech:</strong> Python, Pandas, Scikit-learn, Matplotlib</p>
+            <a href="https://github.com/ritwik4m/house-price-prediction" target="_blank" class="btn">View on GitHub</a>
+        </div>
 
-      <div class="project">
-        <h3>YouTube Video Summarizer (NLP)</h3>
-        <p>Used OpenAI Whisper and Hugging Face Transformers to summarize YouTube video transcripts into concise overviews.</p>
-        <p><strong>Tech:</strong> Python, Whisper, Transformers, NLP</p>
-        <a href="https://github.com/ritwik4m/youtube-video-summarizer-nlp" target="_blank" class="btn">View on GitHub</a>
-      </div>
+        <div class="project">
+            <h3>YouTube Video Summarizer (NLP)</h3>
+            <p>Used OpenAI Whisper and Hugging Face Transformers to summarize YouTube video transcripts into concise overviews.</p>
+            <p><strong>Tech:</strong> Python, Whisper, Transformers, NLP</p>
+            <a href="https://github.com/ritwik4m/youtube-video-summarizer-nlp" target="_blank" class="btn">View on GitHub</a>
+        </div>
 
-      <div class="project">
-        <h3>MSc Registration Assistant</h3>
-        <p>Automated registration support tool for students using web scraping and rule-based logic to assist course selection.</p>
-        <p><strong>Tech:</strong> Python, Web Scraping, BeautifulSoup</p>
-        <a href="https://github.com/ritwik4m/surrey-msc-reg-assistant" target="_blank" class="btn">View on GitHub</a>
-      </div>
-
+        <div class="project">
+            <h3>MSc Registration Assistant</h3>
+            <p>Automated registration support tool for students using web scraping and rule-based logic to assist course selection.</p>
+            <p><strong>Tech:</strong> Python, Web Scraping, BeautifulSoup</p>
+            <a href="https://github.com/ritwik4m/surrey-msc-reg-assistant" target="_blank" class="btn">View on GitHub</a>
+        </div>
     </section>
 
-
-    <!-- Education (Vertical Timeline) -->
+    <!-- Education - vertical stack -->
     <section id="education">
         <h2>Education</h2>
 
-        <div style="position: relative; max-width: 700px; margin: 40px auto 0; padding: 0 10px;">
+        <div class="edu-item">
+            <p class="edu-year">2024 &ndash; 2025</p>
+            <h3>MSc Data Science (Distinction)</h3>
+            <p>University of Surrey, UK</p>
+            <p><strong style="color: var(--text);">Dissertation:</strong> BioDynaMo-based pipeline for neuron morphology optimisation</p>
+        </div>
 
-            <!-- Center line -->
-            <div style="position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; background: #2c7be5; transform: translateX(-50%);"></div>
-
-            <!-- BEng (left side) -->
-            <div style="position: relative; display: flex; justify-content: flex-start; padding-bottom: 60px;">
-                <div style="width: 46%; text-align: right; padding-right: 30px;">
-                    <p style="font-weight: bold; color: #2c7be5; margin: 0 0 6px; font-size: 15px;">2014 – 2018</p>
-                    <h3 style="margin: 0 0 6px;">BEng Electronics & Telecommunication</h3>
-                    <p style="margin: 0 0 6px; font-size: 14px;">Bhilai Institute of Technology, India</p>
-                    <p style="margin: 0; font-size: 13px; color: #666;"><strong>Capstone:</strong> Wireless IoT network for polyhouse monitoring and control</p>
-                </div>
-                <div style="position: absolute; left: 50%; top: 4px; width: 18px; height: 18px; background: #2c7be5; border: 3px solid #fff; border-radius: 50%; transform: translateX(-50%); box-shadow: 0 0 0 2px #2c7be5;"></div>
-                <div style="width: 46%;"></div>
-            </div>
-
-            <!-- MSc (right side) -->
-            <div style="position: relative; display: flex; justify-content: flex-end; padding-bottom: 20px;">
-                <div style="width: 46%;"></div>
-                <div style="position: absolute; left: 50%; top: 4px; width: 18px; height: 18px; background: #2c7be5; border: 3px solid #fff; border-radius: 50%; transform: translateX(-50%); box-shadow: 0 0 0 2px #2c7be5;"></div>
-                <div style="width: 46%; text-align: left; padding-left: 30px;">
-                    <p style="font-weight: bold; color: #2c7be5; margin: 0 0 6px; font-size: 15px;">2024 – 2025</p>
-                    <h3 style="margin: 0 0 6px;">MSc Data Science (Distinction)</h3>
-                    <p style="margin: 0 0 6px; font-size: 14px;">University of Surrey, UK</p>
-                    <p style="margin: 0; font-size: 13px; color: #666;"><strong>Dissertation:</strong> BioDynaMo-based pipeline for neuron morphology optimisation</p>
-                </div>
-            </div>
-
+        <div class="edu-item">
+            <p class="edu-year">2014 &ndash; 2018</p>
+            <h3>BEng Electronics & Telecommunication</h3>
+            <p>Bhilai Institute of Technology, India</p>
+            <p><strong style="color: var(--text);">Capstone:</strong> Wireless IoT network for polyhouse monitoring and control</p>
         </div>
     </section>
 
@@ -193,16 +608,67 @@
     <section id="certifications">
         <h2>Certifications</h2>
 
-        <div class="skills-category">
-            <p>ISTQB Foundation Level (2023), Postgraduate Programme in Data Science & Business Analytics, Great Learning & UT Austin (2023), Python & SQL for Data Science (2025), Microsoft Certified: Azure Fundamentals (AZ-900), Microsoft Certified: Azure Data Fundamentals (DP-900), Microsoft Certified: Azure AI Fundamentals (AI-900), Microsoft Certified: Power BI Data Analyst Associate (PL-300)</p>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <h3>PL-300</h3>
+                <p class="cert-sub">Microsoft Power BI Data Analyst Associate</p>
+                <p class="cert-desc">Validates expertise in data preparation, modelling, visualisation, and deployment using Power BI, directly aligned to analytics engineering roles.</p>
+            </div>
+
+            <div class="cert-card">
+                <h3>PGPDSBA</h3>
+                <p class="cert-sub">Great Learning & UT Austin (2023)</p>
+                <p class="cert-desc">Postgraduate Programme in Data Science & Business Analytics covering statistics, machine learning, and applied analytics.</p>
+            </div>
+
+            <div class="cert-card">
+                <h3>AZ-900 / DP-900 / AI-900</h3>
+                <p class="cert-sub">Microsoft Certified</p>
+                <p class="cert-desc">Azure Fundamentals, Azure Data Fundamentals, and Azure AI Fundamentals, covering cloud, data, and AI foundations.</p>
+            </div>
+
+            <div class="cert-card">
+                <h3>ISTQB Foundation Level</h3>
+                <p class="cert-sub">2023</p>
+                <p class="cert-desc">Core software testing principles, test design techniques, and quality assurance fundamentals.</p>
+            </div>
+
+            <div class="cert-card">
+                <h3>Python & SQL for Data Science</h3>
+                <p class="cert-sub">2025</p>
+                <p class="cert-desc">Applied Python and SQL skills for data manipulation, querying, and analysis.</p>
+            </div>
         </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="contact-info">
-        <h2>Say Hi!</h2>
-        <p>Email: mritwik11@gmail.com</p>
-        <p>Connect on <a href="https://www.linkedin.com/in/ritwik4m" target="_blank">LinkedIn</a></p>
+    <section id="contact">
+        <div style="display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 280px;">
+                <h2>Let's Connect</h2>
+                <p class="section-sub">Open to Data Analyst, Analytics Engineer, and Data Engineering roles. Available to discuss how data-driven thinking and engineering rigor can drive impact on your team.</p>
+
+                <div style="background: var(--accent); border-radius: 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-bottom: 1.5rem;">
+                    <div style="padding: 1.5rem; border-right: 1px solid rgba(255,255,255,0.2);">
+                        <p style="font-weight: 700; margin-bottom: 0.3rem;">LinkedIn</p>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.9rem;">linkedin.com/in/ritwikmishra</p>
+                    </div>
+                    <div style="padding: 1.5rem; border-right: 1px solid rgba(255,255,255,0.2);">
+                        <p style="font-weight: 700; margin-bottom: 0.3rem;">GitHub</p>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.9rem;">github.com/ritwik4m</p>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <p style="font-weight: 700; margin-bottom: 0.3rem;">Email</p>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.9rem;">mritwik11@gmail.com</p>
+                    </div>
+                </div>
+
+                <a href="https://www.linkedin.com/in/ritwik4m" target="_blank" class="btn">View LinkedIn</a>
+                <a href="https://github.com/ritwik4m" target="_blank" class="btn btn-outline">Explore GitHub</a>
+            </div>
+
+            <img src="images/connect.jpg" alt="Let's connect" style="width: 340px; max-width: 100%; height: 260px; object-fit: cover; border-radius: 12px; border: 1px solid var(--card-border);">
+        </div>
     </section>
 
     <!-- Footer -->
