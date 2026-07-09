@@ -389,6 +389,243 @@
             color: var(--text-muted);
             border-top: 1px solid var(--card-border);
         }
+        /* Skill bars */
+        .skill-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .skill-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+        }
+
+        .skill-bar-row {
+            margin-bottom: 1rem;
+        }
+
+        .skill-bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .skill-bar-track {
+            background: rgba(255,255,255,0.08);
+            border-radius: 4px;
+            height: 6px;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            background: var(--accent-light);
+            height: 100%;
+            border-radius: 4px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag-pill {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--card-border);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+        }
+
+        /* Enhanced project cards */
+        .project-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            margin-bottom: 0.9rem;
+        }
+
+        .project-insight {
+            color: var(--accent-light);
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .project-points {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .project-points li {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-points li::before {
+            content: '\2192';
+            color: var(--accent-light);
+            flex-shrink: 0;
+        }
+
+        /* Contact form */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 0.7rem 0.9rem;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .contact-form button {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background: var(--accent-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 700px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+        /* Education - alternating numbered timeline */
+        .edu-timeline {
+            position: relative;
+            max-width: 750px;
+        }
+
+        .edu-timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 4px;
+            bottom: 4px;
+            width: 2px;
+            background: var(--card-border);
+            transform: translateX(-50%);
+        }
+
+        .edu-row {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2.5rem;
+        }
+
+        .edu-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .edu-marker {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            z-index: 2;
+        }
+
+        .edu-col {
+            width: calc(50% - 40px);
+        }
+
+        .edu-row.left .edu-col.content {
+            text-align: right;
+            padding-right: 1.5rem;
+        }
+
+        .edu-row.left .edu-col.spacer {
+            margin-left: auto;
+        }
+
+        .edu-row.right {
+            justify-content: flex-end;
+        }
+
+        .edu-row.right .edu-col.content {
+            text-align: left;
+            padding-left: 1.5rem;
+        }
+
+        .edu-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .edu-meta {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+
+        .edu-detail {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
+
+        .edu-detail strong {
+            color: var(--text);
+        }
     </style>
 </head>
 
@@ -512,95 +749,211 @@
     <!-- Skills -->
     <section id="skills">
         <h2>Technical Skills</h2>
+        <p class="section-sub">A full-stack analytics toolkit, from raw data to executive dashboard.</p>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
-            <div>
-                <div class="skills-category">
-                    <h3>Data Science & Analytics</h3>
-                    <p>Python, SQL, Pandas, NumPy, Power BI, dbt, Statistics & Statistical Modeling</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+
+            <div class="skill-card">
+                <div class="skill-card-header">Data Science &amp; Analytics</div>
+
+                <div class="skill-bar-row">
+                    <div class="skill-bar-label"><span>SQL &amp; Python</span><span>Advanced</span></div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 90%;"></div></div>
                 </div>
-                <div class="skills-category">
-                    <h3>Machine Learning & Deep Learning</h3>
-                    <p>Supervised & Unsupervised Learning, Feature Engineering, Model Evaluation, Transformers (BERT, Hugging Face), PyTorch, TensorFlow</p>
+                <div class="skill-bar-row">
+                    <div class="skill-bar-label"><span>Power BI &amp; dbt</span><span>Advanced</span></div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 85%;"></div></div>
                 </div>
-                <div class="skills-category">
-                    <h3>Data Engineering</h3>
-                    <p>BigQuery, Apache Airflow, PySpark, Azure Data Factory, Databricks, ETL validation, pipeline automation</p>
+                <div class="skill-bar-row">
+                    <div class="skill-bar-label"><span>Machine Learning</span><span>Proficient</span></div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 75%;"></div></div>
                 </div>
-            </div>
-            <div>
-                <div class="skills-category">
-                    <h3>Cloud Platforms</h3>
-                    <p>Microsoft Azure, AWS, Azure Synapse Analytics, Databricks (Lakehouse)</p>
-                </div>
-                <div class="skills-category">
-                    <h3>Dev & Delivery Tools</h3>
-                    <p>JIRA, Confluence, Git, Azure DevOps, CI/CD integration</p>
-                </div>
-                <div class="skills-category">
-                    <h3>QA & Automation</h3>
-                    <p>Test Planning, API Testing, Selenium, Playwright, Cucumber BDD, HP ALM</p>
+                <div class="skill-tags">
+                    <span class="skill-tag-pill">Pandas</span>
+                    <span class="skill-tag-pill">NumPy</span>
+                    <span class="skill-tag-pill">Statistics</span>
                 </div>
             </div>
+
+            <div class="skill-card">
+                <div class="skill-card-header">Data Engineering &amp; Cloud</div>
+
+                <div class="skill-bar-row">
+                    <div class="skill-bar-label"><span>Azure (Data Factory, Databricks, Synapse)</span><span>Advanced</span></div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-bar-row">
+                    <div class="skill-bar-label"><span>BigQuery &amp; Airflow</span><span>Proficient</span></div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 75%;"></div></div>
+                </div>
+                <div class="skill-bar-row">
+                    <div class="skill-bar-label"><span>PySpark</span><span>Proficient</span></div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 70%;"></div></div>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag-pill">ETL Validation</span>
+                    <span class="skill-tag-pill">AWS</span>
+                    <span class="skill-tag-pill">Pipeline Automation</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-card-header">QA &amp; Automation</div>
+
+                <div class="skill-bar-row">
+                    <div class="skill-bar-label"><span>Selenium &amp; Playwright</span><span>Advanced</span></div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-bar-row">
+                    <div class="skill-bar-label"><span>API Testing</span><span>Advanced</span></div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-bar-row">
+                    <div class="skill-bar-label"><span>Test Planning &amp; HP ALM</span><span>Advanced</span></div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag-pill">Cucumber BDD</span>
+                    <span class="skill-tag-pill">JIRA</span>
+                    <span class="skill-tag-pill">CI/CD</span>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-card-header">Delivery &amp; Tools</div>
+
+                <div class="skill-bar-row">
+                    <div class="skill-bar-label"><span>Stakeholder Reporting</span><span>Advanced</span></div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+                </div>
+                <div class="skill-bar-row">
+                    <div class="skill-bar-label"><span>Azure DevOps &amp; Git</span><span>Proficient</span></div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 78%;"></div></div>
+                </div>
+                <div class="skill-bar-row">
+                    <div class="skill-bar-label"><span>Confluence &amp; JIRA</span><span>Advanced</span></div>
+                    <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag-pill">Agile</span>
+                    <span class="skill-tag-pill">Cross-team Coordination</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- Projects -->
     <section id="projects">
         <h2>Projects</h2>
+        <p class="section-sub">Applied work spanning NLP, simulation, and predictive modelling.</p>
 
         <div class="project">
+            <span class="project-badge">NLP</span>
             <h3>NER Token Classification</h3>
-            <p>Built and fine-tuned transformer models for Named Entity Recognition (NER) on domain-specific text using Hugging Face.</p>
-            <p><strong>Tech:</strong> Python, Transformers, Hugging Face, NLP</p>
+            <p class="project-insight">Fine-tuned transformer models for domain-specific entity extraction</p>
+            <ul class="project-points">
+                <li>Built and fine-tuned Hugging Face transformer models for Named Entity Recognition on domain-specific text</li>
+                <li>Applied preprocessing and evaluation pipelines to improve entity extraction accuracy</li>
+            </ul>
+            <div class="skill-tags" style="margin-bottom: 1rem;">
+                <span class="skill-tag-pill">Python</span>
+                <span class="skill-tag-pill">Transformers</span>
+                <span class="skill-tag-pill">Hugging Face</span>
+            </div>
             <a href="https://github.com/ritwik4m/NER-token-classification" target="_blank" class="btn">View on GitHub</a>
         </div>
 
         <div class="project">
-            <h3>Neuron Morphology Optimisation (Dissertation)</h3>
-            <p>Developed a BioDynaMo-based simulation workflow to model and optimise neuron structures at scale as part of MSc dissertation.</p>
-            <p><strong>Tech:</strong> Python, BioDynaMo, Simulation, Research</p>
+            <span class="project-badge">Dissertation</span>
+            <h3>Neuron Morphology Optimisation</h3>
+            <p class="project-insight">Applied Bayesian optimisation to a large-scale simulation pipeline</p>
+            <ul class="project-points">
+                <li>Developed a BioDynaMo-based simulation workflow to model and optimise neuron structures at scale</li>
+                <li>Achieved approximately 25% reduction in model loss through Bayesian optimisation</li>
+            </ul>
+            <div class="skill-tags" style="margin-bottom: 1rem;">
+                <span class="skill-tag-pill">Python</span>
+                <span class="skill-tag-pill">BioDynaMo</span>
+                <span class="skill-tag-pill">Simulation</span>
+            </div>
             <a href="https://github.com/ritwik4m/bdm-neuron-optimizer" target="_blank" class="btn">View on GitHub</a>
         </div>
 
         <div class="project">
+            <span class="project-badge">Machine Learning</span>
             <h3>House Price Prediction</h3>
-            <p>Built regression models to predict house prices using feature engineering, model comparison, and interpretability tools.</p>
-            <p><strong>Tech:</strong> Python, Pandas, Scikit-learn, Matplotlib</p>
+            <p class="project-insight">Comparative regression modelling with interpretability analysis</p>
+            <ul class="project-points">
+                <li>Built and compared regression models to predict house prices using engineered features</li>
+                <li>Applied interpretability tools to explain model predictions to non-technical stakeholders</li>
+            </ul>
+            <div class="skill-tags" style="margin-bottom: 1rem;">
+                <span class="skill-tag-pill">Python</span>
+                <span class="skill-tag-pill">Pandas</span>
+                <span class="skill-tag-pill">Scikit-learn</span>
+            </div>
             <a href="https://github.com/ritwik4m/house-price-prediction" target="_blank" class="btn">View on GitHub</a>
         </div>
 
         <div class="project">
-            <h3>YouTube Video Summarizer (NLP)</h3>
-            <p>Used OpenAI Whisper and Hugging Face Transformers to summarize YouTube video transcripts into concise overviews.</p>
-            <p><strong>Tech:</strong> Python, Whisper, Transformers, NLP</p>
+            <span class="project-badge">NLP</span>
+            <h3>YouTube Video Summarizer</h3>
+            <p class="project-insight">Speech-to-text and summarization pipeline for long-form video</p>
+            <ul class="project-points">
+                <li>Used OpenAI Whisper to transcribe YouTube video audio into text</li>
+                <li>Applied Hugging Face Transformers to summarize transcripts into concise overviews</li>
+            </ul>
+            <div class="skill-tags" style="margin-bottom: 1rem;">
+                <span class="skill-tag-pill">Python</span>
+                <span class="skill-tag-pill">Whisper</span>
+                <span class="skill-tag-pill">Transformers</span>
+            </div>
             <a href="https://github.com/ritwik4m/youtube-video-summarizer-nlp" target="_blank" class="btn">View on GitHub</a>
         </div>
 
         <div class="project">
+            <span class="project-badge">Automation</span>
             <h3>MSc Registration Assistant</h3>
-            <p>Automated registration support tool for students using web scraping and rule-based logic to assist course selection.</p>
-            <p><strong>Tech:</strong> Python, Web Scraping, BeautifulSoup</p>
+            <p class="project-insight">Automated course-selection support for incoming students</p>
+            <ul class="project-points">
+                <li>Built a web-scraping and rule-based tool to automate registration support</li>
+                <li>Reduced manual effort in navigating course selection for new students</li>
+            </ul>
+            <div class="skill-tags" style="margin-bottom: 1rem;">
+                <span class="skill-tag-pill">Python</span>
+                <span class="skill-tag-pill">Web Scraping</span>
+                <span class="skill-tag-pill">BeautifulSoup</span>
+            </div>
             <a href="https://github.com/ritwik4m/surrey-msc-reg-assistant" target="_blank" class="btn">View on GitHub</a>
         </div>
     </section>
 
-    <!-- Education - vertical stack -->
+    <!-- Education - alternating numbered timeline -->
     <section id="education">
         <h2>Education</h2>
 
-        <div class="edu-item">
-            <p class="edu-year">2024 &ndash; 2025</p>
-            <h3>MSc Data Science (Distinction)</h3>
-            <p>University of Surrey, UK</p>
-            <p><strong style="color: var(--text);">Dissertation:</strong> BioDynaMo-based pipeline for neuron morphology optimisation</p>
-        </div>
+        <div class="edu-timeline">
+            <div class="edu-row left">
+                <div class="edu-col content">
+                    <p class="edu-title">MSc Data Science &mdash; University of Surrey</p>
+                    <p class="edu-meta">Distinction &middot; Guildford, UK &middot; Sept 2024 &ndash; Nov 2025</p>
+                    <p class="edu-detail">Modules: Machine Learning, NLP, Cloud Computing, Data Mining, Business Analytics.</p>
+                    <p class="edu-detail"><strong>Dissertation:</strong> BioDynaMo-based pipeline for neuron morphology optimisation, applying Bayesian optimisation to reduce model loss by approximately 25%.</p>
+                </div>
+                <div class="edu-marker">1</div>
+                <div class="edu-col spacer"></div>
+            </div>
 
-        <div class="edu-item">
-            <p class="edu-year">2014 &ndash; 2018</p>
-            <h3>BEng Electronics & Telecommunication</h3>
-            <p>Bhilai Institute of Technology, India</p>
-            <p><strong style="color: var(--text);">Capstone:</strong> Wireless IoT network for polyhouse monitoring and control</p>
+            <div class="edu-row right">
+                <div class="edu-col spacer"></div>
+                <div class="edu-marker">2</div>
+                <div class="edu-col content">
+                    <p class="edu-title">BEng Electronics &amp; Telecommunication</p>
+                    <p class="edu-meta">Bhilai Institute of Technology, India &middot; Aug 2014 &ndash; Jun 2018</p>
+                    <p class="edu-detail"><strong>Capstone:</strong> Designed a wireless IoT network for polyhouse monitoring and control.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -643,31 +996,51 @@
 
     <!-- Contact -->
     <section id="contact">
-        <div style="display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 280px;">
-                <h2>Let's Connect</h2>
-                <p class="section-sub">Open to Data Analyst, Analytics Engineer, and Data Engineering roles. Available to discuss how data-driven thinking and engineering rigor can drive impact on your team.</p>
+        <h2>Let's Connect</h2>
+        <p class="section-sub">Open to Data Analyst, Analytics Engineer, and Data Engineering roles. Available to discuss how data-driven thinking and engineering rigor can drive impact on your team.</p>
 
-                <div style="background: var(--accent); border-radius: 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-bottom: 1.5rem;">
-                    <div style="padding: 1.5rem; border-right: 1px solid rgba(255,255,255,0.2);">
-                        <p style="font-weight: 700; margin-bottom: 0.3rem;">LinkedIn</p>
+        <div class="contact-grid">
+            <div>
+                <div style="background: var(--accent); border-radius: 8px; margin-bottom: 1.5rem;">
+                    <div style="padding: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.2);">
+                        <p style="font-weight: 700; margin-bottom: 0.2rem;">LinkedIn</p>
                         <p style="color: rgba(255,255,255,0.85); font-size: 0.9rem;">linkedin.com/in/ritwikmishra</p>
                     </div>
-                    <div style="padding: 1.5rem; border-right: 1px solid rgba(255,255,255,0.2);">
-                        <p style="font-weight: 700; margin-bottom: 0.3rem;">GitHub</p>
+                    <div style="padding: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.2);">
+                        <p style="font-weight: 700; margin-bottom: 0.2rem;">GitHub</p>
                         <p style="color: rgba(255,255,255,0.85); font-size: 0.9rem;">github.com/ritwik4m</p>
                     </div>
-                    <div style="padding: 1.5rem;">
-                        <p style="font-weight: 700; margin-bottom: 0.3rem;">Email</p>
+                    <div style="padding: 1.25rem;">
+                        <p style="font-weight: 700; margin-bottom: 0.2rem;">Email</p>
                         <p style="color: rgba(255,255,255,0.85); font-size: 0.9rem;">mritwik11@gmail.com</p>
                     </div>
                 </div>
 
                 <a href="https://www.linkedin.com/in/ritwik4m" target="_blank" class="btn">View LinkedIn</a>
                 <a href="https://github.com/ritwik4m" target="_blank" class="btn btn-outline">Explore GitHub</a>
+
+                <img src="images/connect.jpg" alt="Let's connect" style="width: 100%; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid var(--card-border); margin-top: 1.5rem;">
             </div>
 
-            <img src="images/connect.jpg" alt="Let's connect" style="width: 340px; max-width: 100%; height: 260px; object-fit: cover; border-radius: 12px; border: 1px solid var(--card-border);">
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div>
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="What's this about?">
+                </div>
+                <div>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Tell me about the opportunity..." required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
         </div>
     </section>
 
